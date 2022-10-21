@@ -11,7 +11,6 @@ class CartView extends GetView<CartController> {
   final home = Get.find<HomeController>();
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: const Text('CartView'),
@@ -32,7 +31,7 @@ class CartView extends GetView<CartController> {
                           Text("${dataAtIndex.name}"),
                           Column(
                             children: [
-                              Container(
+                              SizedBox(
                                   width: 200,
                                   height: 200,
                                   child: Row(
@@ -64,8 +63,7 @@ class CartView extends GetView<CartController> {
                                           )),
                                     ],
                                   )),
-                              Text(
-                                  "\$${cart.value}")
+                              Text("\$${cart.value}")
                             ],
                           ),
                         ],
@@ -77,12 +75,10 @@ class CartView extends GetView<CartController> {
           label: SizedBox(
             child: Row(
               children: [
-                Text("Total"),
-                GetBuilder<CartController>(
-                  builder: (context) {
-                    return Text("${home.totalamount}");
-                  }
-                ),
+                const Text("Total"),
+                GetBuilder<CartController>(builder: (context) {
+                  return Text("${home.totalamount}");
+                }),
               ],
             ),
           )),
